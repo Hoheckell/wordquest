@@ -1,0 +1,37 @@
+<script setup lang="ts">
+import { computed } from 'vue'
+import { Briefcase } from 'lucide-vue-next'
+import type { Question } from '../../data/missions'
+
+interface Props {
+  question: Question
+  modelValue: string | string[]
+}
+const props = defineProps<Props>()
+const emit = defineEmits(['update:modelValue'])
+
+const selectedAnswer = computed({
+  get: () => props.modelValue,
+  set: (value) => emit('update:modelValue', value)
+})
+</script>
+
+<template>
+  <div class="space-y-3">
+    <div class="bg-purple-50 border-l-4 border-purple-400 rounded-r-lg p-4 mb-4 flex items-center gap-3">
+      <Briefcase class="w-6 h-6 text-purple-600" />
+      <p class="text-purple-900 font-semibold">💼 Situação-Problema</p>
+    </div>
+    <button
+      v-for="option in question.options"
+      :key="option"
+      @click="selectedAnswer = option"
+      :class="[
+        'w-full text-left p-4 border-2 rounded-xl transition-all text-gray-800 font-medium',
+        selectedAnswer === option ? 'border-purple-600 bg-purple-50 shadow-md' : 'border-gray-300 hover:border-purple-400 hover:bg-gray-50'
+      ]"
+    >
+      {{ option }}
+    </button>
+  </div>
+</template>
