@@ -37,7 +37,7 @@ export const missions: Mission[] = [
       {
         id: 'q1',
         type: 'multiple-choice',
-        question: 'Qual é a função da Faixa de Opções (Ribbon) no Microsoft Word?',
+        question: 'Qual é a função da Faixa de Opções (Ribbon ou Barra de ferramentas) no Microsoft Word?',
         options: [
           'Exibir apenas o texto do documento',
           'Organizar comandos e ferramentas em guias temáticas',
@@ -63,7 +63,7 @@ export const missions: Mission[] = [
         type: 'drag-drop',
         question: 'Associe cada elemento da interface com sua função principal:',
         dragItems: [
-          { id: 'item1', text: 'Faixa de Opções' },
+          { id: 'item1', text: 'Barra de ferramentas' },
           { id: 'item2', text: 'Barra de Status' },
           { id: 'item3', text: 'Régua' }
         ],
